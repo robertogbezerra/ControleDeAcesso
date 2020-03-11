@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C01263D3-18E8-4A1B-9648-1F42F54D28D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ControleDeAcesso</RootNamespace>
+    <AssemblyName>ControleDeAcesso</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.2375.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.Design, Version=5.0.2375.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.Linq.Design, Version=4.9.1920.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.MySql, Version=8.17.1583.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Devart.Data.Synchronization, Version=5.0.2375.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controledeacessocfoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>controledeacessocfoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="report\GerenteReport.cs" />
+    <Compile Include="report\GerenteReportCategoria.cs" />
+    <Compile Include="report\GerenteReportConfiguracoes.cs" />
+    <Compile Include="report\GerenteReportEventos.cs" />
+    <Compile Include="report\GerenteReportImplement.cs" />
+    <Compile Include="report\GerenteReportIngressos.cs" />
+    <Compile Include="report\GerenteReportUsuario.cs" />
+    <Compile Include="report\IGerenteReport.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="view\FrmCadastroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmCadastroUsuario.Designer.cs">
+      <DependentUpon>FrmCadastroUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmConfiguracaoSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmConfiguracaoSistema.Designer.cs">
+      <DependentUpon>FrmConfiguracaoSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmGraficoEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmGraficoEventos.Designer.cs">
+      <DependentUpon>FrmGraficoEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmMonitor.Designer.cs">
+      <DependentUpon>FrmMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmRelatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmRelatorios.Designer.cs">
+      <DependentUpon>FrmRelatorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmSobreIcones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmSobreIcones.Designer.cs">
+      <DependentUpon>FrmSobreIcones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmRecuperacaoSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmRecuperacaoSenha.Designer.cs">
+      <DependentUpon>FrmRecuperacaoSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FrmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmInicio.Designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="util\ConfiguracaoDoSistema.cs" />
+    <Compile Include="controller\ControleUsuario.cs" />
+    <Compile Include="controller\controllerEvento.cs" />
+    <Compile Include="controller\IControle.cs" />
+    <Compile Include="dao\CrudCategoria.cs" />
+    <Compile Include="dao\CrudConfiguracoes.cs" />
+    <Compile Include="dao\CrudEvento.cs" />
+    <Compile Include="dao\CrudImplement.cs" />
+    <Compile Include="dao\CrudIngresso.cs" />
+    <Compile Include="dao\CrudUsuario.cs" />
+    <Compile Include="dao\ICrud.cs" />
+    <Compile Include="db\Conexao.cs" />
+    <Compile Include="util\Estados.cs" />
+    <Compile Include="model\Categoria.cs" />
+    <Compile Include="model\ConfiguracaoDeSistema.cs" />
+    <Compile Include="model\Evento.cs" />
+    <Compile Include="model\Ingresso.cs" />
+    <Compile Include="model\Torneio.cs" />
+    <Compile Include="model\Usuario.cs" />
+    <Compile Include="util\Utilitaria.cs" />
+    <Compile Include="view\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\FrmRecuperacaoSenha2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FrmRecuperacaoSenha2.Designer.cs">
+      <DependentUpon>FrmRecuperacaoSenha2.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="report\Modelo.rdlc" />
+    <EmbeddedResource Include="report\Relatorio-Categorias.rdlc" />
+    <EmbeddedResource Include="report\Relatorio-Configuracoes.rdlc" />
+    <EmbeddedResource Include="report\Relatorio-Eventos.rdlc" />
+    <EmbeddedResource Include="report\Relatorio-EventosLand.rdlc" />
+    <EmbeddedResource Include="report\Relatorio-Ingressos.rdlc" />
+    <EmbeddedResource Include="report\Relatorio-Usuarios.rdlc" />
+    <EmbeddedResource Include="view\FrmCadastroUsuario.resx">
+      <DependentUpon>FrmCadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmConfiguracaoSistema.resx">
+      <DependentUpon>FrmConfiguracaoSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmGraficoEventos.resx">
+      <DependentUpon>FrmGraficoEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmInicio.resx">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="view\FrmMonitor.resx">
+      <DependentUpon>FrmMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmRecuperacaoSenha.resx">
+      <DependentUpon>FrmRecuperacaoSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmRecuperacaoSenha2.resx">
+      <DependentUpon>FrmRecuperacaoSenha2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmRelatorios.resx">
+      <DependentUpon>FrmRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FrmSobreIcones.resx">
+      <DependentUpon>FrmSobreIcones.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="controledeacessocfoDataSet.xsc">
+      <DependentUpon>controledeacessocfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="controledeacessocfoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>controledeacessocfoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="controledeacessocfoDataSet.xss">
+      <DependentUpon>controledeacessocfoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escudo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escudoLogin.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="img\cabecalhoRelatorio.jpg" />
+    <Content Include="img\configMonitor.jpg" />
+    <Content Include="img\configMonitor.png" />
+    <Content Include="img\configuracao.ico" />
+    <Content Include="img\configuracao1.ico" />
+    <Content Include="img\corpoRelatorio.jpg" />
+    <Content Include="img\defesaLogin.png" />
+    <Content Include="img\escudo2.png" />
+    <Content Include="img\escudoLogin.png" />
+    <Content Include="img\iconeLogin.ico" />
+    <Content Include="img\iconeLogin2.ico" />
+    <Content Include="img\icons8-aceitar-banco-de-dados-100.png" />
+    <Content Include="img\icons8-aceitar-banco-de-dados-50.png" />
+    <Content Include="img\icons8-add-user-male-skin-type-7-100.png" />
+    <Content Include="img\icons8-add-user-male-skin-type-7-50.png" />
+    <Content Include="img\icons8-adicionar-100.png" />
+    <Content Include="img\icons8-adicionar-50.png" />
+    <Content Include="img\icons8-adicionar-a-lista-100.png" />
+    <Content Include="img\icons8-adicionar-a-lista-50.png" />
+    <Content Include="img\icons8-adicionar-arquivo-100.png" />
+    <Content Include="img\icons8-adicionar-arquivo-50.png" />
+    <Content Include="img\icons8-adicionar-banco-de-dados-100.png" />
+    <Content Include="img\icons8-adicionar-banco-de-dados-50.png" />
+    <Content Include="img\icons8-adicionar-o-carrinho-de-compras-100.png" />
+    <Content Include="img\icons8-adicionar-o-carrinho-de-compras-50.png" />
+    <Content Include="img\icons8-adjudicação-100.png" />
+    <Content Include="img\icons8-adjudicação-50.png" />
+    <Content Include="img\icons8-administrador-masculino-100.png" />
+    <Content Include="img\icons8-administrador-masculino-50.png" />
+    <Content Include="img\icons8-apagador-100.png" />
+    <Content Include="img\icons8-apagador-50.png" />
+    <Content Include="img\icons8-apagar-100.png" />
+    <Content Include="img\icons8-apagar-50.png" />
+    <Content Include="img\icons8-apagar-arquivo-100.png" />
+    <Content Include="img\icons8-apagar-arquivo-50.png" />
+    <Content Include="img\icons8-apagar-para-sempre-100.png" />
+    <Content Include="img\icons8-apagar-para-sempre-50.png" />
+    <Content Include="img\icons8-aprovação-100.png" />
+    <Content Include="img\icons8-aprovação-50.png" />
+    <Content Include="img\icons8-arquivo-favorito-100.png" />
+    <Content Include="img\icons8-arquivo-favorito-50.png" />
+    <Content Include="img\icons8-backup-de-dados-100.png" />
+    <Content Include="img\icons8-backup-de-dados-50.png" />
+    <Content Include="img\icons8-binóculos-100.png" />
+    <Content Include="img\icons8-binóculos-50.png" />
+    <Content Include="img\icons8-cachorro-quente-100.png" />
+    <Content Include="img\icons8-cachorro-quente-50.png" />
+    <Content Include="img\icons8-caixa-automático-100.png" />
+    <Content Include="img\icons8-caixa-automático-50.png" />
+    <Content Include="img\icons8-calendário-1-100.png" />
+    <Content Include="img\icons8-calendário-1-50.png" />
+    <Content Include="img\icons8-calendário-10-100.png" />
+    <Content Include="img\icons8-calendário-10-50.png" />
+    <Content Include="img\icons8-calendário-100.png" />
+    <Content Include="img\icons8-calendário-11-100.png" />
+    <Content Include="img\icons8-calendário-11-50.png" />
+    <Content Include="img\icons8-calendário-12-100.png" />
+    <Content Include="img\icons8-calendário-12-50.png" />
+    <Content Include="img\icons8-calendário-14-100.png" />
+    <Content Include="img\icons8-calendário-14-50.png" />
+    <Content Include="img\icons8-calendário-15-100.png" />
+    <Content Include="img\icons8-calendário-15-50.png" />
+    <Content Include="img\icons8-calendário-16-100.png" />
+    <Content Include="img\icons8-calendário-16-50.png" />
+    <Content Include="img\icons8-calendário-17-100.png" />
+    <Content Include="img\icons8-calendário-17-50.png" />
+    <Content Include="img\icons8-calendário-18-100.png" />
+    <Content Include="img\icons8-calendário-18-50.png" />
+    <Content Include="img\icons8-calendário-19-100.png" />
+    <Content Include="img\icons8-calendário-19-50.png" />
+    <Content Include="img\icons8-calendário-2-100.png" />
+    <Content Include="img\icons8-calendário-2-50.png" />
+    <Content Include="img\icons8-calendário-20-100.png" />
+    <Content Include="img\icons8-calendário-20-50.png" />
+    <Content Include="img\icons8-calendário-21-100.png" />
+    <Content Include="img\icons8-calendário-21-50.png" />
+    <Content Include="img\icons8-calendário-22-100.png" />
+    <Content Include="img\icons8-calendário-22-50.png" />
+    <Content Include="img\icons8-calendário-23-100.png" />
+    <Content Include="img\icons8-calendário-23-50.png" />
+    <Content Include="img\icons8-calendário-24-100.png" />
+    <Content Include="img\icons8-calendário-24-50.png" />
+    <Content Include="img\icons8-calendário-25-100.png" />
+    <Content Include="img\icons8-calendário-25-50.png" />
+    <Content Include="img\icons8-calendário-26-100.png" />
+    <Content Include="img\icons8-calendário-26-50.png" />
+    <Content Include="img\icons8-calendário-27-100.png" />
+    <Content Include="img\icons8-calendário-27-50.png" />
+    <Content Include="img\icons8-calendário-28-100.png" />
+    <Content Include="img\icons8-calendário-28-50.png" />
+    <Content Include="img\icons8-calendário-29-100.png" />
+    <Content Include="img\icons8-calendário-29-50.png" />
+    <Content Include="img\icons8-calendário-3-100.png" />
+    <Content Include="img\icons8-calendário-3-50.png" />
+    <Content Include="img\icons8-calendário-30-100.png" />
+    <Content Include="img\icons8-calendário-30-50.png" />
+    <Content Include="img\icons8-calendário-31-100.png" />
+    <Content Include="img\icons8-calendário-31-50.png" />
+    <Content Include="img\icons8-calendário-4-100.png" />
+    <Content Include="img\icons8-calendário-4-50.png" />
+    <Content Include="img\icons8-calendário-5-100.png" />
+    <Content Include="img\icons8-calendário-5-50.png" />
+    <Content Include="img\icons8-calendário-50.png" />
+    <Content Include="img\icons8-calendário-6-100.png" />
+    <Content Include="img\icons8-calendário-6-50.png" />
+    <Content Include="img\icons8-calendário-7-100.png" />
+    <Content Include="img\icons8-calendário-7-50.png" />
+    <Content Include="img\icons8-calendário-8-100.png" />
+    <Content Include="img\icons8-calendário-8-50.png" />
+    <Content Include="img\icons8-calendário-9-100.png" />
+    <Content Include="img\icons8-calendário-9-50.png" />
+    <Content Include="img\icons8-calendário-de-13-100.png" />
+    <Content Include="img\icons8-calendário-de-13-50.png" />
+    <Content Include="img\icons8-cardápio-100.png" />
+    <Content Include="img\icons8-cardápio-50.png" />
+    <Content Include="img\icons8-carrinho-de-compras-carregado-100.png" />
+    <Content Include="img\icons8-carrinho-de-compras-carregado-50.png" />
+    <Content Include="img\icons8-carteira-100.png" />
+    <Content Include="img\icons8-carteira-50.png" />
+    <Content Include="img\icons8-cartões-de-banco-100.png" />
+    <Content Include="img\icons8-cartões-de-banco-50.png" />
+    <Content Include="img\icons8-casa-100.png" />
+    <Content Include="img\icons8-casa-50.png" />
+    <Content Include="img\icons8-cliente-windows-100.png" />
+    <Content Include="img\icons8-cliente-windows-50.png" />
+    <Content Include="img\icons8-cloud-file-100.png" />
+    <Content Include="img\icons8-cloud-file-50.png" />
+    <Content Include="img\icons8-coctail-tiro-100.png" />
+    <Content Include="img\icons8-coctail-tiro-50.png" />
+    <Content Include="img\icons8-comida-100.png" />
+    <Content Include="img\icons8-comida-50.png" />
+    <Content Include="img\icons8-comida-saudável-100.png" />
+    <Content Include="img\icons8-comida-saudável-50.png" />
+    <Content Include="img\icons8-comida-vegana-100.png" />
+    <Content Include="img\icons8-comida-vegana-50.png" />
+    <Content Include="img\icons8-conectado-sem-dados-100.png" />
+    <Content Include="img\icons8-conectado-sem-dados-50.png" />
+    <Content Include="img\icons8-conexão-desligada-100.png" />
+    <Content Include="img\icons8-conexão-desligada-50.png" />
+    <Content Include="img\icons8-conexão-média-100.png" />
+    <Content Include="img\icons8-conexão-média-50.png" />
+    <Content Include="img\icons8-conexão-ruim-100.png" />
+    <Content Include="img\icons8-conexão-ruim-50.png" />
+    <Content Include="img\icons8-conexão-ótima-100.png" />
+    <Content Include="img\icons8-conexão-ótima-50.png" />
+    <Content Include="img\icons8-configurações-100.png" />
+    <Content Include="img\icons8-configurações-50.png" />
+    <Content Include="img\icons8-conta-de-teste-100.png" />
+    <Content Include="img\icons8-conta-de-teste-50.png" />
+    <Content Include="img\icons8-contatos-100.png" />
+    <Content Include="img\icons8-contatos-50.png" />
+    <Content Include="img\icons8-crachá-100.png" />
+    <Content Include="img\icons8-crachá-50.png" />
+    <Content Include="img\icons8-crie-um-novo-100.png" />
+    <Content Include="img\icons8-crie-um-novo-50.png" />
+    <Content Include="img\icons8-código-de-barras-100.png" />
+    <Content Include="img\icons8-código-de-barras-50.png" />
+    <Content Include="img\icons8-data-a-partir-de-100.png" />
+    <Content Include="img\icons8-data-a-partir-de-50.png" />
+    <Content Include="img\icons8-data-até-100.png" />
+    <Content Include="img\icons8-data-até-50.png" />
+    <Content Include="img\icons8-denied-skin-type-7-100.png" />
+    <Content Include="img\icons8-denied-skin-type-7-50.png" />
+    <Content Include="img\icons8-desconto-100.png" />
+    <Content Include="img\icons8-desconto-50.png" />
+    <Content Include="img\icons8-devolver-compra-100.png" />
+    <Content Include="img\icons8-devolver-compra-50.png" />
+    <Content Include="img\icons8-dispersão-100.png" />
+    <Content Include="img\icons8-dispersão-50.png" />
+    <Content Include="img\icons8-documento-100.png" />
+    <Content Include="img\icons8-documento-50.png" />
+    <Content Include="img\icons8-domínio-100.png" />
+    <Content Include="img\icons8-domínio-50.png" />
+    <Content Include="img\icons8-editar-arquivo-100.png" />
+    <Content Include="img\icons8-editar-arquivo-50.png" />
+    <Content Include="img\icons8-editar-usuário-masculino-100.png" />
+    <Content Include="img\icons8-editar-usuário-masculino-50.png" />
+    <Content Include="img\icons8-em-andamento-100.png" />
+    <Content Include="img\icons8-em-andamento-50.png" />
+    <Content Include="img\icons8-entrar-100.png" />
+    <Content Include="img\icons8-entrar-50.png" />
+    <Content Include="img\icons8-entrega-de-comida-100.png" />
+    <Content Include="img\icons8-entrega-de-comida-50.png" />
+    <Content Include="img\icons8-enviar-para-a-impressora-100.png" />
+    <Content Include="img\icons8-enviar-para-a-impressora-50.png" />
+    <Content Include="img\icons8-evento-aceito-provisoriamente-100.png" />
+    <Content Include="img\icons8-evento-aceito-provisoriamente-50.png" />
+    <Content Include="img\icons8-excluir-100-2.png" />
+    <Content Include="img\icons8-excluir-100.png" />
+    <Content Include="img\icons8-excluir-50-2.png" />
+    <Content Include="img\icons8-excluir-50.png" />
+    <Content Include="img\icons8-excluir-banco-de-dados-100.png" />
+    <Content Include="img\icons8-excluir-banco-de-dados-50.png" />
+    <Content Include="img\icons8-excluir-calendário-100.png" />
+    <Content Include="img\icons8-excluir-calendário-50.png" />
+    <Content Include="img\icons8-expirado-100.png" />
+    <Content Include="img\icons8-expirado-50.png" />
+    <Content Include="img\icons8-exportar-csv-100.png" />
+    <Content Include="img\icons8-exportar-csv-50.png" />
+    <Content Include="img\icons8-facebook-100.png" />
+    <Content Include="img\icons8-facebook-50.png" />
+    <Content Include="img\icons8-ferramentas-administrativas-100.png" />
+    <Content Include="img\icons8-ferramentas-administrativas-50.png" />
+    <Content Include="img\icons8-ficheiro-symlink-100.png" />
+    <Content Include="img\icons8-ficheiro-symlink-50.png" />
+    <Content Include="img\icons8-fluxograma-100.png" />
+    <Content Include="img\icons8-fluxograma-50.png" />
+    <Content Include="img\icons8-fone-de-ouvido-100.png" />
+    <Content Include="img\icons8-fone-de-ouvido-50.png" />
+    <Content Include="img\icons8-fotografia-100.png" />
+    <Content Include="img\icons8-fotografia-50.png" />
+    <Content Include="img\icons8-funcionário-homem-100.png" />
+    <Content Include="img\icons8-funcionário-homem-50.png" />
+    <Content Include="img\icons8-gerente-100.png" />
+    <Content Include="img\icons8-gerente-50.png" />
+    <Content Include="img\icons8-glass-of-whiskey-100.png" />
+    <Content Include="img\icons8-glass-of-whiskey-50.png" />
+    <Content Include="img\icons8-google-plus-100.png" />
+    <Content Include="img\icons8-google-plus-50.png" />
+    <Content Include="img\icons8-google-wallet-100.png" />
+    <Content Include="img\icons8-google-wallet-50.png" />
+    <Content Include="img\icons8-gráfico-combinado-100.png" />
+    <Content Include="img\icons8-gráfico-combinado-50.png" />
+    <Content Include="img\icons8-gráfico-de-linha-100.png" />
+    <Content Include="img\icons8-gráfico-de-linha-50.png" />
+    <Content Include="img\icons8-gráfico-de-pizza-100.png" />
+    <Content Include="img\icons8-gráfico-de-pizza-50.png" />
+    <Content Include="img\icons8-grátis-100.png" />
+    <Content Include="img\icons8-grátis-50.png" />
+    <Content Include="img\icons8-guardar-todos-100.png" />
+    <Content Include="img\icons8-guardar-todos-50.png" />
+    <Content Include="img\icons8-hambúrguer-100.png" />
+    <Content Include="img\icons8-hambúrguer-50.png" />
+    <Content Include="img\icons8-histórico-de-atividades-100.png" />
+    <Content Include="img\icons8-histórico-de-atividades-50.png" />
+    <Content Include="img\icons8-importar-csv-100.png" />
+    <Content Include="img\icons8-importar-csv-50.png" />
+    <Content Include="img\icons8-impressão-100.png" />
+    <Content Include="img\icons8-impressão-50.png" />
+    <Content Include="img\icons8-informações-100.png" />
+    <Content Include="img\icons8-informações-50.png" />
+    <Content Include="img\icons8-instagram-100.png" />
+    <Content Include="img\icons8-instagram-50.png" />
+    <Content Include="img\icons8-insurance-agent-100.png" />
+    <Content Include="img\icons8-insurance-agent-50.png" />
+    <Content Include="img\icons8-intervalo-de-data-100.png" />
+    <Content Include="img\icons8-intervalo-de-data-50.png" />
+    <Content Include="img\icons8-json-download-100.png" />
+    <Content Include="img\icons8-json-download-50.png" />
+    <Content Include="img\icons8-kawaii-bread-100.png" />
+    <Content Include="img\icons8-kawaii-bread-50.png" />
+    <Content Include="img\icons8-kawaii-french-fries-100.png" />
+    <Content Include="img\icons8-kawaii-french-fries-50.png" />
+    <Content Include="img\icons8-kawaii-soda-100.png" />
+    <Content Include="img\icons8-kawaii-soda-50.png" />
+    <Content Include="img\icons8-kawaii-taco-100.png" />
+    <Content Include="img\icons8-kawaii-taco-50.png" />
+    <Content Include="img\icons8-leitor-de-códigos-de-barra-100.png" />
+    <Content Include="img\icons8-leitor-de-códigos-de-barra-50.png" />
+    <Content Include="img\icons8-letras-miúdas-100.png" />
+    <Content Include="img\icons8-letras-miúdas-50.png" />
+    <Content Include="img\icons8-linkedin-100.png" />
+    <Content Include="img\icons8-linkedin-50.png" />
+    <Content Include="img\icons8-macho-de-configurações-de-admin-100.png" />
+    <Content Include="img\icons8-macho-de-configurações-de-admin-50.png" />
+    <Content Include="img\icons8-mais-1-ano-100.png" />
+    <Content Include="img\icons8-mais-1-ano-50.png" />
+    <Content Include="img\icons8-mais-1-dia-100.png" />
+    <Content Include="img\icons8-mais-1-dia-50.png" />
+    <Content Include="img\icons8-mais-1-hora-100.png" />
+    <Content Include="img\icons8-mais-1-hora-50.png" />
+    <Content Include="img\icons8-mais-1-mês-100.png" />
+    <Content Include="img\icons8-mais-1-mês-50.png" />
+    <Content Include="img\icons8-mais-100.png" />
+    <Content Include="img\icons8-mais-50.png" />
+    <Content Include="img\icons8-mais-calendário-100.png" />
+    <Content Include="img\icons8-mais-calendário-50.png" />
+    <Content Include="img\icons8-manutenção-de-impressora-100.png" />
+    <Content Include="img\icons8-manutenção-de-impressora-50.png" />
+    <Content Include="img\icons8-menos-1-ano-100.png" />
+    <Content Include="img\icons8-menos-1-ano-50.png" />
+    <Content Include="img\icons8-menos-1-dia-100.png" />
+    <Content Include="img\icons8-menos-1-dia-50.png" />
+    <Content Include="img\icons8-menos-1-hora-100.png" />
+    <Content Include="img\icons8-menos-1-hora-50.png" />
+    <Content Include="img\icons8-menos-1-mês-100.png" />
+    <Content Include="img\icons8-menos-1-mês-50.png" />
+    <Content Include="img\icons8-menos-calendário-100.png" />
+    <Content Include="img\icons8-menos-calendário-50.png" />
+    <Content Include="img\icons8-moedas-100.png" />
+    <Content Include="img\icons8-moedas-50.png" />
+    <Content Include="img\icons8-notas-de-dinheiro-100.png" />
+    <Content Include="img\icons8-notas-de-dinheiro-50.png" />
+    <Content Include="img\icons8-nova-planilha-100.png" />
+    <Content Include="img\icons8-nova-planilha-50.png" />
+    <Content Include="img\icons8-novo-por-cópia-100.png" />
+    <Content Include="img\icons8-novo-por-cópia-50.png" />
+    <Content Include="img\icons8-orçamento-100.png" />
+    <Content Include="img\icons8-orçamento-50.png" />
+    <Content Include="img\icons8-pago-100.png" />
+    <Content Include="img\icons8-pago-50.png" />
+    <Content Include="img\icons8-pasta-100.png" />
+    <Content Include="img\icons8-pasta-50.png" />
+    <Content Include="img\icons8-pdf-2-100.png" />
+    <Content Include="img\icons8-pdf-2-50.png" />
+    <Content Include="img\icons8-pesquisar-100.png" />
+    <Content Include="img\icons8-pesquisar-50.png" />
+    <Content Include="img\icons8-pontos-de-radar-100.png" />
+    <Content Include="img\icons8-pontos-de-radar-50.png" />
+    <Content Include="img\icons8-presente-100.png" />
+    <Content Include="img\icons8-presente-50.png" />
+    <Content Include="img\icons8-pão-100.png" />
+    <Content Include="img\icons8-pão-50.png" />
+    <Content Include="img\icons8-quadro-giratório-2-100.png" />
+    <Content Include="img\icons8-quadro-giratório-2-50.png" />
+    <Content Include="img\icons8-quadro-giratório-4-100.png" />
+    <Content Include="img\icons8-quadro-giratório-4-50.png" />
+    <Content Include="img\icons8-quadro-giratório-5-100.png" />
+    <Content Include="img\icons8-quadro-giratório-5-50.png" />
+    <Content Include="img\icons8-quadro-giratório-6-100.png" />
+    <Content Include="img\icons8-quadro-giratório-6-50.png" />
+    <Content Include="img\icons8-quadro-giratório-7-100.png" />
+    <Content Include="img\icons8-quadro-giratório-7-50.png" />
+    <Content Include="img\icons8-quadro-giratório-8-100.png" />
+    <Content Include="img\icons8-quadro-giratório-8-50.png" />
+    <Content Include="img\icons8-recibo-100.png" />
+    <Content Include="img\icons8-recibo-50.png" />
+    <Content Include="img\icons8-reiniciar-100.png" />
+    <Content Include="img\icons8-reiniciar-50.png" />
+    <Content Include="img\icons8-relógio-100.png" />
+    <Content Include="img\icons8-relógio-50.png" />
+    <Content Include="img\icons8-rescan-document-100.png" />
+    <Content Include="img\icons8-rescan-document-50.png" />
+    <Content Include="img\icons8-salvar-arquivo-100.png" />
+    <Content Include="img\icons8-salvar-arquivo-50.png" />
+    <Content Include="img\icons8-salvar-como-100.png" />
+    <Content Include="img\icons8-salvar-como-50.png" />
+    <Content Include="img\icons8-salvar-e-fechar-100.png" />
+    <Content Include="img\icons8-salvar-e-fechar-50.png" />
+    <Content Include="img\icons8-selecionado-100-2.png" />
+    <Content Include="img\icons8-selecionado-100.png" />
+    <Content Include="img\icons8-selecionado-50-2.png" />
+    <Content Include="img\icons8-selecionado-50.png" />
+    <Content Include="img\icons8-sem-rede-100.png" />
+    <Content Include="img\icons8-sem-rede-50.png" />
+    <Content Include="img\icons8-sincronizar-100.png" />
+    <Content Include="img\icons8-sincronizar-50.png" />
+    <Content Include="img\icons8-sincronizar-conexão-100.png" />
+    <Content Include="img\icons8-sincronizar-conexão-50.png" />
+    <Content Include="img\icons8-sumo-de-laranja-100.png" />
+    <Content Include="img\icons8-sumo-de-laranja-50.png" />
+    <Content Include="img\icons8-tamanho-da-página-100.png" />
+    <Content Include="img\icons8-tamanho-da-página-50.png" />
+    <Content Include="img\icons8-user-menu-male-skin-type-7-100.png" />
+    <Content Include="img\icons8-user-menu-male-skin-type-7-50.png" />
+    <Content Include="img\icons8-verificar-100.png" />
+    <Content Include="img\icons8-verificar-50.png" />
+    <Content Include="img\icons8-verificar-arquivo-100.png" />
+    <Content Include="img\icons8-verificar-arquivo-50.png" />
+    <Content Include="img\icons8-visualizar-arquivo-100.png" />
+    <Content Include="img\icons8-visualizar-arquivo-50.png" />
+    <Content Include="img\icons8-visualizar-mês-100.png" />
+    <Content Include="img\icons8-visualizar-mês-50.png" />
+    <Content Include="img\icons8-visualizar-semana-100.png" />
+    <Content Include="img\icons8-visualizar-semana-50.png" />
+    <Content Include="img\icons8-whois-100.png" />
+    <Content Include="img\icons8-whois-50.png" />
+    <Content Include="img\icons8-wi-fi-100.png" />
+    <Content Include="img\icons8-wi-fi-50.png" />
+    <Content Include="img\icons8-wi-fi-connected-100.png" />
+    <Content Include="img\icons8-wi-fi-connected-50.png" />
+    <Content Include="img\icons8-wi-fi-desligado-100.png" />
+    <Content Include="img\icons8-wi-fi-desligado-50.png" />
+    <Content Include="img\monitor-novo.ico" />
+    <Content Include="img\monitor-opacity-50%25.png" />
+    <Content Include="img\monitor-sem-rel.png" />
+    <Content Include="img\monitor.png" />
+    <Content Include="img\rodapeRelatorio.jpg" />
+    <None Include="Resources\cadeado_64.png" />
+    <None Include="Resources\manager_64.png" />
+    <None Include="Resources\gerente.ico" />
+    <None Include="Resources\gerente.png" />
+    <None Include="Resources\gerente.jpeg" />
+    <None Include="Resources\fundo.jpeg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
